@@ -52,4 +52,7 @@ code {
   font-weight: 600;
   font-style: normal;
 }
+.Feedback-btn:hover {
+ cursor: pointer;
+}
 
