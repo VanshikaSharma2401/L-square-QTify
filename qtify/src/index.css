@@ -15,7 +15,7 @@ code {
 }
 
 .navbar{
-  padding: 14px 4px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   background-color: #34C94B;
@@ -48,6 +48,8 @@ code {
   color: #34c94b;
   border-radius: 14px;
   padding: 10px 14px;
-  font-size: medium;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
