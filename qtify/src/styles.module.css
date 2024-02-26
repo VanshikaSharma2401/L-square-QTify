@@ -1,0 +1,37 @@
+:root {
+  --primary-color: #34c94b;
+  --black-color: #121212;
+  --white-color:#FFFFFF;
+}
+.navbar {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+  align-items: center;
+}
+.search {
+  border: 1px solid var(--black-color);
+  padding: 0.7em;
+  border-radius: 5px;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--white-color);
+}
+.searchInput {
+  outline: none;
+  border: none;
+  width: 80%;
+}
+  .FeedbackBtn {
+    background-color: var(--black-color);
+    color: var(--primary-color);
+    border-radius: 14px;
+    padding: 10px 14px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    cursor: pointer;
+  }

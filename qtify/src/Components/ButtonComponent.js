@@ -1,11 +1,10 @@
 import React from "react";
+import styles from "../../src/styles.module.css"
 const Button = ({text}) => {
   return (
-    <div className="btn">
-      <button className="Feedback-btn" type="text">
+      <button className={styles.FeedbackBtn} type="text">
         {text}
       </button>
-    </div>
   );
 };
 export default Button;

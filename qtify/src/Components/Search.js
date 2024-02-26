@@ -1,16 +1,16 @@
 import React from "react";
-
-import logo from "../assets/SearchIcon.svg"
+import styles from "../../src/styles.module.css"
+import searchIcon from "../assets/SearchIcon.svg"
 
 const Search = () => {
   return (
-    <div className="search">
+    <div className={styles.search}>
       <input
         type="text"
-        className="search-input"
-        placeholder="Search a album of your choice"
+        className={styles.searchInput}
+        placeholder="Search a song of your choice"
       />
-      <img src={logo} alt="qtify logo"/>
+      <img src={searchIcon} alt="search icon"/>
     </div>
   );
 };
