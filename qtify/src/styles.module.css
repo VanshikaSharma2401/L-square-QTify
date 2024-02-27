@@ -35,3 +35,22 @@
     font-style: normal;
     cursor: pointer;
   }
+
+.heroContainer{
+  background-color: var(--black-color);
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  gap: 2px;
+}
+.textContainer{
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: larger;
+  color: var(--white-color);
+}
+
