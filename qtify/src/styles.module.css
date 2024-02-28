@@ -3,6 +3,7 @@
   --black-color: #121212;
   --white-color:#FFFFFF;
 }
+
 .navbar {
   padding: 15px;
   display: flex;
@@ -53,4 +54,37 @@
   font-size: larger;
   color: var(--white-color);
 }
-
+.card{
+  max-width: 200px;
+  border-radius: 10px;
+}
+.followCard
+{
+  background-color: var(--white-color);
+  display: flex;
+  border-radius: 0px 0px 10px 10px;
+  padding: 10px;
+}
+.Img{
+  object-fit: contain;
+  max-width: 200px;
+  max-height: 300px;
+  border-radius: 10px 10px 0px 0px;
+}
+.search{
+  padding: 10px 0px 10px 0px;
+}
+.albumContainer{
+  display: flex;
+  justify-content:space-between ;
+  padding: 0px 2%;
+}
+.topAlbums{
+  color: var(--white-color);
+}
+.collapse{
+  color: var(--primary-color);
+}
+.section{
+  padding: 0px 2%;
+}
