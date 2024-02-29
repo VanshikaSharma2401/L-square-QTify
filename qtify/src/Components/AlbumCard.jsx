@@ -14,6 +14,7 @@ const AlbumCard = ({album}) => {
           style={{ alignSelf: "flex-start" }}
         />
       </div>
+      <p className={styles.title}>{album.title}</p>
     </div>
   );
 };
