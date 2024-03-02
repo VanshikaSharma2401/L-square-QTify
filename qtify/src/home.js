@@ -8,11 +8,12 @@ import { fetchNewAlbumsData } from './Api/api';
 const Home = () => {
   const [topAlbums, setTopAlbums] = useState([]);
   const [newAlbums, setNewAlbums] = useState([]);
+  const [isCollapseOrShowAll,setisCollapseOrShowAll]=useState(false)
+  const [isCollapseOrShowAllForNew,setisCollapseOrShowAllForNew]=useState(false)
   const [error, setError] = useState(null);
   const fetchTopAlbums = async () => {
     try {
       const response = await fetchData();
-      console.log("Response:", response);
       setTopAlbums(response); // Assuming response.data contains the array of albums
     } catch (error) {
       console.error("Error fetching top albums:", error);
@@ -22,7 +23,6 @@ const Home = () => {
   const fetchNewAlbums = async () => {
     try {
       const response = await fetchNewAlbumsData();
-      console.log("Response:", response);
       setNewAlbums(response); // Assuming response.data contains the array of albums
     } catch (error) {
       console.error("Error fetching top albums:", error);
@@ -33,12 +33,20 @@ const Home = () => {
     fetchTopAlbums();
     fetchNewAlbums();
   }, []);
+  const handleCollapseForTopAlbums = () => {
+    setisCollapseOrShowAll(!isCollapseOrShowAll);
+  };
+  
+  const handleCollapseForNewAlbums = () => {
+    setisCollapseOrShowAllForNew(!isCollapseOrShowAllForNew);
+  };
+  
   return (
     <div>
       <Navbar/>
       <Hero />
-      <Section Albums={topAlbums} error={error} AlbumType={"Top Albums"} CollapseOrShow={"Collapse"}/>
-      <Section Albums={newAlbums} error={error} AlbumType={"New Albums"} CollapseOrShow={"Show All"}/>
+      <Section Albums={topAlbums} error={error} AlbumType={"Top Albums"} handleCollapse={handleCollapseForTopAlbums} isCollapseOrShowAll={isCollapseOrShowAll}/>
+      <Section Albums={newAlbums} error={error} AlbumType={"New Albums"} handleCollapse={handleCollapseForNewAlbums} isCollapseOrShowAll={isCollapseOrShowAllForNew}/>
     </div>
   )
 }
