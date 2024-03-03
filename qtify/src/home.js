@@ -56,17 +56,14 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    console.log(selectedGenere,"selectedGenere>>>>")
     if(selectedGenere=="All")
     {
       setFilteredSongs(songs); 
     }
     const filteredSongs = filterSongs();
-    console.log(filteredSongs,"filteredSongs")
     setFilteredSongs(filteredSongs); 
   }, [selectedGenere]);
 
-  console.log(songs,"songs")
   return (
     <div>
       <Navbar/>
