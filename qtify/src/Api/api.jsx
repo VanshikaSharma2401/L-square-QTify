@@ -4,7 +4,6 @@ import axios from 'axios';
 export async function fetchData() {
   try {
     const response = await axios.get('https://qtify-backend-labs.crio.do/albums/top');
-    console.log('Data:', response.data);
     return response.data;
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -13,7 +12,22 @@ export async function fetchData() {
 export async function fetchNewAlbumsData() {
   try {
     const response = await axios.get('https://qtify-backend-labs.crio.do/albums/new');
-    console.log('Data:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+export async function fetchSongsData() {
+  try {
+    const response = await axios.get('https://qtify-backend-labs.crio.do/songs');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+export async function fetchGenereData() {
+  try {
+    const response = await axios.get('https://qtify-backend-labs.crio.do/genres');
     return response.data;
   } catch (error) {
     console.error('Error fetching data:', error);

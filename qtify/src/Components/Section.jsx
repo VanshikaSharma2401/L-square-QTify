@@ -3,9 +3,10 @@ import Grid from "@mui/material/Grid";
 import AlbumCard from "./AlbumCard";
 import styles from "../../src/styles.module.css";
 import Carousel from "./Carousal";
+import Tab from "./Tab";
+const Section = ({ Albums, error, AlbumType, isSong, setSelectedGenere ,selectedGenere}) => {
+  const [collapse, setCollapse] = useState(false);
 
-const Section = ({ Albums, error, AlbumType, handleCollapse, isCollapseOrShowAll }) => {
-  const[collapse,setCollapse]=useState(false)
   if (error) {
     return <div>Error: {error.message}</div>;
   }
@@ -13,20 +14,31 @@ const Section = ({ Albums, error, AlbumType, handleCollapse, isCollapseOrShowAll
     <div className={styles.section}>
       <div className={styles.albumContainer}>
         <h2 className={styles.topAlbums}>{AlbumType}</h2>
-        <p className={styles.collapse} onClick={()=>setCollapse(!collapse)}>
-          {collapse ? "Collapse" : "Show All"}
-        </p>
+        {!isSong ? (
+          <p className={styles.collapse} onClick={() => setCollapse(!collapse)}>
+            {collapse ? "Collapse" : "Show All"}
+          </p>
+        ) : (
+          ""
+        )}
       </div>
+      {isSong ? (
+        <div className={styles.tab}>
+          <Tab setSelectedGenere={setSelectedGenere} selectedGenere={selectedGenere}/>
+        </div>
+      ) : (
+        ""
+      )}
       {collapse ? (
         <Grid container spacing={6}>
           {Albums?.map((album) => (
             <Grid item xs={12} sm={3} md={2} key={album.id}>
-              <AlbumCard album={album}/>
+              <AlbumCard album={album} isSong={isSong}/>
             </Grid>
           ))}
         </Grid>
       ) : (
-        <Carousel data={Albums}/>
+        <Carousel data={Albums} />
       )}
     </div>
   );
