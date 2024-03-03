@@ -11,6 +11,7 @@ const Home = () => {
   const [newAlbums, setNewAlbums] = useState([]);
   const [selectedGenere, setSelectedGenere] = useState("All");
   const [songs, setSongs] = useState([]);
+  const [filteredSongs,setFilteredSongs]=useState([]);
   const [error, setError] = useState(null);
   const fetchTopAlbums = async () => {
     try {
@@ -33,18 +34,17 @@ const Home = () => {
   const fetchSongs = async () => {
     try {
       const response = await fetchSongsData();
-      setSongs(response); // Assuming response.data contains the array of albums
+      setSongs(response); 
+      setFilteredSongs(response)// Assuming response.data contains the array of albums
     } catch (error) {
       console.error("Error fetching top albums:", error);
       setError(error);
     }
   }; 
+
   const filterSongs = () => {
     return songs.filter((song) => {
-      console.log(song?.genre?.label,"song?.genere?.label")
-      console.log(selectedGenere,"selectedGenere")
-      console.log(song?.genre?.label == selectedGenere,"isEqual")
-      return song?.genere?.label.toLowerCase() === selectedGenere.toLowerCase();
+      return song?.genre?.label == selectedGenere;
     });
   };
   
@@ -56,9 +56,14 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    console.log(selectedGenere,"selectedGenere>>>>")
+    if(selectedGenere=="All")
+    {
+      setFilteredSongs(songs); 
+    }
     const filteredSongs = filterSongs();
     console.log(filteredSongs,"filteredSongs")
-    setSongs(filteredSongs); // Update state with filtered songs
+    setFilteredSongs(filteredSongs); 
   }, [selectedGenere]);
 
   console.log(songs,"songs")
@@ -68,7 +73,7 @@ const Home = () => {
       <Hero />
       <Section Albums={topAlbums} error={error} AlbumType={"Top Albums"} isSong={false}/>
       <Section Albums={newAlbums} error={error} AlbumType={"New Albums"} isSong={false}/>
-      <Section Albums={songs} error={error} AlbumType={"Songs"} isSong={true} selectedGenere={selectedGenere} setSelectedGenere={setSelectedGenere}/>
+      <Section Albums={filteredSongs} error={error} AlbumType={"Songs"} isSong={true} selectedGenere={selectedGenere} setSelectedGenere={setSelectedGenere}/>
       
     </div>
   )
