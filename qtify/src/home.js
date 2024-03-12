@@ -54,14 +54,17 @@ const Home = () => {
     fetchNewAlbums();
     fetchSongs();
   }, []);
-
+console.log(selectedGenere,"selectedGenere>>>")
   useEffect(() => {
     if(selectedGenere=="All")
     {
+      console.log(songs,"songs>>>")
       setFilteredSongs(songs); 
     }
-    const filteredSongs = filterSongs();
-    setFilteredSongs(filteredSongs); 
+    else{
+      const filteredSongs = filterSongs();
+      setFilteredSongs(filteredSongs); 
+    }
   }, [selectedGenere]);
 
   return (

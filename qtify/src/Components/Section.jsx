@@ -32,7 +32,7 @@ const Section = ({ Albums, error, AlbumType, isSong, setSelectedGenere ,selected
       {collapse ? (
         <Grid container spacing={6}>
           {Albums?.map((album) => (
-            <Grid item xs={12} sm={3} md={2} key={album.id}>
+            <Grid item xs={6} sm={3} md={2} key={album.id}>
               <AlbumCard album={album} isSong={isSong}/>
             </Grid>
           ))}
