@@ -12,7 +12,7 @@ const Section = ({ Albums, error, AlbumType, isSong, setSelectedGenere ,selected
   }
   return (
     <div className={styles.section}>
-      <div className={styles.albumContainer}>
+      <div className={styles.albumContainer} >
         <h2 className={styles.topAlbums}>{AlbumType}</h2>
         {!isSong ? (
           <p className={styles.collapse} onClick={() => setCollapse(!collapse)}>
@@ -30,9 +30,9 @@ const Section = ({ Albums, error, AlbumType, isSong, setSelectedGenere ,selected
         ""
       )}
       {collapse ? (
-        <Grid container spacing={6}>
+        <Grid container spacing={6} justify="center" item="center" className={styles.Grid}>
           {Albums?.map((album) => (
-            <Grid item xs={6} sm={3} md={2} key={album.id}>
+            <Grid item xs={12} sm={6} md={2} key={album.id}>
               <AlbumCard album={album} isSong={isSong}/>
             </Grid>
           ))}

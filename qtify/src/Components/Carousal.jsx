@@ -12,6 +12,7 @@ const Carousel = ({ data }) => {
       breakpoints={{
         768: {
           slidesPerView: 3,
+          centeredSlides: true,
         },
         992: {
           slidesPerView: 4,

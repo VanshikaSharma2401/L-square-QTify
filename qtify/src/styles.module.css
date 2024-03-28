@@ -57,6 +57,7 @@
 .card{
   max-width: 200px;
   border-radius: 10px;
+  margin: auto;
 }
 .followCard
 {
@@ -68,8 +69,17 @@
 .Img{
   object-fit: contain;
   max-width: 200px;
-  max-height: 300px;
+  max-height: auto;
   border-radius: 10px 10px 0px 0px;
+}
+/* .Grid{
+  justify-content: ;
+} */
+.cardWrapper{
+  display: grid !important;
+  align-items: center !important;
+  justify-content: center !important;
+
 }
 .search{
   padding: 10px 0px 10px 0px;
@@ -100,4 +110,16 @@
 }
 .tab{
   padding: 20px 0px;
+}
+@media screen and (max-width: 767px){
+  .card{
+    max-width: 300px;
+    margin: auto;
+  }
+  .Img{
+    object-fit: contain;
+    max-width: 300px;
+    max-height: auto !important;
+    border-radius: 10px 10px 0px 0px;
+  }
 }
